@@ -89,6 +89,7 @@ public:
     hsail64,        // AMD HSAIL with 64-bit pointers
     spir,           // SPIR: standard portable IR for OpenCL 32-bit version
     spir64,         // SPIR: standard portable IR for OpenCL 64-bit version
+    c65,            // C65: 6502, 65C02, 65C816
     kalimba,        // Kalimba: generic kalimba
     shave,          // SHAVE: Movidius vector VLIW processors
     lanai,          // Lanai: Lanai 32-bit
@@ -213,6 +214,7 @@ public:
     ELF,
     MachO,
     Wasm,
+    WLAK,
   };
 
 private:

@@ -17,6 +17,7 @@
 #include "llvm/MC/MCObjectWriter.h"
 #include "llvm/MC/MCWasmObjectWriter.h"
 #include "llvm/MC/MCWinCOFFObjectWriter.h"
+#include "llvm/MC/MCWLAKObjectWriter.h"
 #include <cassert>
 #include <cstddef>
 #include <cstdint>
@@ -43,6 +44,9 @@ MCAsmBackend::createObjectWriter(raw_pwrite_stream &OS) const {
         cast<MCWinCOFFObjectTargetWriter>(std::move(TW)), OS);
   case Triple::Wasm:
     return createWasmObjectWriter(cast<MCWasmObjectTargetWriter>(std::move(TW)),
+                                  OS);
+  case Triple::WLAK:
+    return createWLAKObjectWriter(cast<MCWLAKObjectTargetWriter>(std::move(TW)),
                                   OS);
   default:
     llvm_unreachable("unexpected object format");
